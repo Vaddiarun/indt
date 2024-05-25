@@ -7,7 +7,7 @@ header {
     height: 100px;
     font-size: 1.1rem;
     background-color: var(--theme-color);
-    color: white;
+    color: black;
     @include flex(row, center, space-around, 0px);
     @include break(700px) {
       @include flex(column, center, null, 15px);

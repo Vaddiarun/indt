@@ -35,7 +35,7 @@ const RightContent = ({ subtitle, title, desc, content_items, btn_text }) => {
           ))}
         </section>
         <Link to="/top-therapists">
-          <Button title={btn_text} bg={"--button-bg"} />
+          <Button title={btn_text} color={"--black"} bg={"--button-bg"} />
         </Link>
       </section>
     </>

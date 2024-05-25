@@ -1,6 +1,7 @@
 import "./card.scss";
 
 const Card = ({ data: { img, title, desc, height, width, section } }) => {
+  console.log(img);
   return (
     <>
       <section className={"card_container"}>

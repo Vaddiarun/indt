@@ -8,7 +8,7 @@ import {
 } from "../../assets/icons/index";
 const flexibleTreatment = [
   {
-    img: "https://i0.wp.com/indiatherapist.com/wp-content/uploads/2023/01/pexels-photo-8722180.jpeg",
+    img: "https://images.pexels.com/photos/4098368/pexels-photo-4098368.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     title: "Stress Depression and Anxiety",
     desc: "We're helping people to recover stress,depression and anxiety",
   },

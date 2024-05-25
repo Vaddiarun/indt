@@ -1,15 +1,58 @@
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye';
 import "./register.scss";
 import { useEffect, useState } from "react";
 import configuredUrl from "../../utils/request/request";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+
+
+
 const Register = () => {
+
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [confirmValuePassword,setPasswordForConfirmPssword]=useState("");
+
+
   const [phone, setPhone] = useState("");
   const [error, setError] = useState(null);
+
+  
+  const [type,setType]=useState('password');
+  const [typeForConfirmPassword,setTypeForConfirmPassword]=useState('password');
+
+
+  const [icon,setIcon]=useState(eyeOff);
+
+  const [iconforConfirmPassword,setIconFroConfirmPassword]=useState(eyeOff);
+
+
+
+  const handleToggleForPassword=()=>{
+    if(type==='password'){
+      setIcon(eye);
+      setType('text')
+  }else{
+    setIcon(eyeOff);
+    setType('password')
+  }
+}
+
+
+const handleToggleForConfirmPassword=()=>{
+  if(typeForConfirmPassword==='password'){
+    setIconFroConfirmPassword(eye);
+    setTypeForConfirmPassword('text');
+}else{
+  setIconFroConfirmPassword(eyeOff);
+  setTypeForConfirmPassword('password');
+}
+}
 
   let passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -77,6 +120,7 @@ const Register = () => {
             </section>
             <section className="app__form">
               <form className="form-container">
+              
                 <input
                   required
                   onChange={(e) => {
@@ -99,6 +143,7 @@ const Register = () => {
                   value={email}
                 />
 
+            <div className='confirmpasswordboder'> 
                 <input
                   required
                   onChange={(e) => {
@@ -106,10 +151,31 @@ const Register = () => {
                   }}
                   placeholder="Enter the password"
                   id="pass"
-                  type="password"
+                  type={type}
                   value={password}
                 />
+                <span className='flex justify-around items-center' onClick={handleToggleForPassword}>
+                  <Icon class="absolute mr-10" icon={icon} size={25}/>
+                </span>
 
+                </div>
+
+                <div className='confirmpasswordboder'>
+                 <input
+                  required
+                  onChange={(e) => {
+                   setPasswordForConfirmPssword(e.target.value);
+                  }}
+                  placeholder="Confirm our password"
+                  id="pass"
+                  type={typeForConfirmPassword}
+                  value={confirmValuePassword}
+                />
+
+                <span className='flex justify-around items-center' onClick={handleToggleForConfirmPassword}>
+                  <Icon class="absolute mr-10" icon={iconforConfirmPassword} size={25}/>
+                </span>
+            </div>
                 <input
                   required
                   onChange={(e) => {
